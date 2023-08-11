@@ -15,16 +15,16 @@
 
 ###
 
--   localhost:8080/products
+-   localhost:8080/api/products
 
 ## Buscar producto por ID:
 
 ###
 
--   localhost:8080/products/1
+-   localhost:8080/api/products/1
 
 ## Mostrar productos con limite:
 
 ###
 
--   localhost:8080/products?limit=5
+-   localhost:8080/api/products?limit=5
