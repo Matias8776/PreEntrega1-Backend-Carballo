@@ -52,7 +52,10 @@ export default class ProductManager {
             result.message = "El codigo ya está en uso";
             return result;
         }
-        thumbnails = thumbnails || "Sin Imagen";
+        thumbnails = thumbnails || [];
+        price = Number(price);
+        stock = Number(stock);
+        status = Boolean(status);
         status = status || true;
 
         const product = {

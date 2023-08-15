@@ -1,5 +1,8 @@
 import ProductManager from "../ProductManager.js";
 import { Router } from "express";
+import { uploader } from "../utils.js";
+import path from "path";
+import __dirname from "../utils.js";
 
 const router = Router();
 
@@ -32,8 +35,8 @@ router.get("/:pid", async (req, res) => {
     res.send(product);
 });
 
-router.post("/", async (req, res) => {
-    const {
+router.post("/", uploader.array("thumbnails"), async (req, res) => {
+    let {
         title,
         description,
         price,
@@ -43,6 +46,12 @@ router.post("/", async (req, res) => {
         status,
         category,
     } = req.body;
+
+    if (req.files) {
+        thumbnails = req.files.map((file) => {
+            return path.join(__dirname, "./public/img/", file.filename);
+        });
+    }
 
     const validationResult = await productManager.addProduct(
         title,
