@@ -33,6 +33,7 @@ router.post("/:cid/product/:pid", async (req, res) => {
     const cid = +req.params.cid;
     const product = await productManager.getProductById(pid);
     const cart = await cartManager.getCartById(cid);
+    console.log(product);
 
     if (!product) {
         res.send({

@@ -37,6 +37,7 @@ export default class CartManager {
     };
 
     getCartById = async (id) => {
+        this.readJson();
         const cart = this.carts.find((cart) => cart.id === id);
         return cart;
     };

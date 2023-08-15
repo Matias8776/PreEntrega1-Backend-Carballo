@@ -82,10 +82,12 @@ export default class ProductManager {
     };
 
     getProducts = async () => {
+        this.readJson();
         return this.products;
     };
 
     getProductById = async (id) => {
+        this.readJson();
         const product = this.products.find((product) => product.id === id);
         return product;
     };
